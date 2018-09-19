@@ -3,42 +3,68 @@ public class Person {
 	private String gender;
 
 	Person(String name, String gender) {
-		this.name = name;
+		this.setName(name);
 
 		if (gender.equals('M') || gender.equals('F')) {
 			System.out.println("Please insert correct gender");
 		}
 		else {
-			this.gender = gender;
+			this.setGender(gender);
 		}
 	}//end constructor
 
 	public String toString() {
-		return "Name = " + name + "\nGender = " + gender + "\n";
+		return "Name = " + getName() + "\nGender = " + getGender() + "\n";
 	}
 
-    public static void main(String[] args) {
-    	Person person1 = new Person("John", "M");
-    	Person person2 = new Person("Mia", "F");
-    	System.out.print(person1);
-    	System.out.print(person2);
-    	
-    	Student student1 = new Student("Jim", "M", "C121342");
-    	System.out.println(student1);
-	}//end main
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }//end class
 
-class Student extends Person {
-    private String studentID;
-    private String name;
-	private String gender;
+class Student extends Person implements PublishDetails {
+    private int studentID;
+	// Of type class, not object
+ 	public static int studentIDCounter = 0;
     
-	Student(String name, String gender, String studentID) {
+	Student(String name, String gender, int studentIDCounter) {
 		super(name, gender);
-		this.studentID = studentID;
+		studentIDCounter += 1;
+		studentID = studentIDCounter;
+		//this.setStudentID(studentID);
+	}
+	
+	public void getCourseCode()
+	{
+		System.out.println("\n Student code: " + getStudentID()  + "\n");
+	}
+	
+	public void confirmDetails()
+	{
+		System.out.println("\n Student Name: " + super.getName()  + "\n");
 	}
 
 	public String toString() {
-		return "Name = " + name + "\nGender = " + gender + "\n" + "StudentID = " + studentID + "\n";
+		return "Name = " + super.getName() + "\nGender = " + getGender() + "\n" + "StudentID = " + getStudentID() + "\n";
+	}
+
+	private int getStudentID() {
+		return studentID;
+	}
+
+	private void setStudentID(int studentID) {
+		this.studentID = studentID;
 	}
 }
