@@ -1,0 +1,69 @@
+package com.lenghel.michael.kotlincraic
+
+fun main(args:Array<String>) {
+
+    /*Classes**/
+    class Dog {
+        private var name = ""
+        private var age = 0
+
+        fun setName(name : String) {
+            this.name = name
+        }
+
+        fun setAge(age : Int) {
+            if (age >= 0) {
+                this.age = age
+            }
+        }
+
+        override fun toString() : String {
+            return "Name: " + this.name + "\nage " + age
+        }
+    }
+    println()
+
+    var myDog = Dog()
+    myDog.setName("Fido")
+    myDog.setAge(4)
+    println(myDog)
+
+    fun print_weatehr_light(weather : String, isTheLightOn : Boolean): Int {
+        println(weather)
+        println(isTheLightOn)
+        return 5
+    }
+
+    fun name_age(name : String, age : Int) : String {
+        return name + " " + age.toString()
+    }
+
+    /*Functions and types**/
+    var weather = "rainy"
+    var isTheLightOn : Boolean = false
+    var num : Int
+    num = print_weatehr_light(weather, isTheLightOn)
+    println(num)
+
+    println(name_age("Lucy", 10))
+
+    /*Lists part**/
+
+    //var topCandy : List<String> = listOf("Snickers", "Fun Dip", "Mars")
+    //var topCandy = arrayOf("choco1", "choco2", "choco3")
+    var topCandy = mutableListOf("choco1", "choco2", "choco3")
+    topCandy.add(0, "Black Thunder")
+    topCandy.add(topCandy.size, "Rolls")
+
+    println(topCandy[0])
+    println()
+    for (candy in topCandy) {
+        println(candy)
+    }
+
+    println()
+    for (index in 0..topCandy.size-1) {
+        println(topCandy[index])
+    }
+
+}
