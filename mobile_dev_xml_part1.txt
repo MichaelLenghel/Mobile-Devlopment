@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<student>
+  <name
+  gender = "Male">
+  John Murphy
+  </name>
+  <gender>
+    <male>m</male>
+    <female>f</female>
+  </gender>
+  <age>21</age>
+  <course
+    type = "fulltime">
+    DT228</course>
+  <city>Dublin</city>
+  <institution>DIT</institution>
+</student>
